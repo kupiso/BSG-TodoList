@@ -1,0 +1,347 @@
+/* RESET & BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+  color: #af53fa;
+}
+
+/* Layout Structure */
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  padding: 2rem;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.nav ul {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+.nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #636e72;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.nav a:hover,
+.nav a.active {
+  background: #dfe6e9;
+  color: #2d3436;
+}
+
+/* Main Content */
+main {
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.03);
+}
+
+/* Header */
+.header {
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  color: #ffffff;
+  border-bottom: none;
+}
+.header p {
+  color: #f1f2f6;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.header-buttons {
+  display: flex;
+  align-items: start;
+}
+
+/* Button Styles */
+.header button {
+  background: black;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+.header button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Tasks Row */
+.tasks-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.tasks-wrapper {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Task Card Styles */
+.task-card {
+  width: 100%;
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+.task-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #eef9fa;
+}
+.task-card .task-meta {
+  margin: 0 0 8px 0;
+  color: #eef9fa;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 8px;
+}
+.task-card p {
+  margin: 0 0 16px 0;
+  color: #eef9fa;
+}
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 0 16px 0;
+}
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.complete-btn {
+  background: black;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.complete-btn:hover {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+}
+.icon-group {
+  display: flex;
+  gap: 8px;
+}
+.icon-btn {
+  
+  border: none;
+  cursor:pointer;
+  font-size: 1.1rem;
+}
+.icon-btn:hover {
+  opacity: 0.7;
+}
+
+.task-card.completed {
+  opacity: 0.8;
+  text-decoration: line-through;
+}
+.add-task {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  color: #fcffff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.add-task:hover {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.modal-content {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 4px;
+  position: relative;
+  display: grid;
+}
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+/* FOOTER */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:white;
+}
+footer {
+  background: linear-gradient(90deg, #c59df3, #bcb8eb);
+  border-top: 1px solid #eee;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.footer-links a {
+  color: #636e72;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: #6c5ce7;
+}
+
+/* Improved Form Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #2d3436;
+  transition: border-color 0.2s ease;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #6c5ce7;
+}
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+  border-color: #e74c3c;
+}
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.form-actions button:first-child {
+  background: #bdc3c7;
+  color: #fff;
+}
+.form-actions button:last-child {
+  background: #797880;
+  color: #fff;
+}
+.form-actions button:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    box-shadow: none;
+  }
+  .tasks-row {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    text-align: left;
+  }
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
